@@ -6,6 +6,8 @@
 #ifndef MS_TYPES
 #define MS_TYPES 0
 
+#define error_msg(str)  printf("Err: %s\n", str)
+
 typedef enum
 {
 	failure = 0,

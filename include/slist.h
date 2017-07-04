@@ -9,9 +9,24 @@
 
 typedef struct s_link_list
 {
-	void *ptr;
+	void *data;
 	slist_t type;
 	struct s_link_list *next;
 } slist;
+
+/* create node */
+slist *create_node(slist_t type, void *data);
+
+/* insert first */
+status_t insert_first(slist_t **head, slist_t *node);
+
+/* insert last */
+status_t insert_last(slist_t **head, slist_t *node);
+
+/* delete first */
+void delete_first(slist **head);
+
+/* delete last */
+void delete_last(slist **head);
 
 #endif
