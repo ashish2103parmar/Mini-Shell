@@ -17,13 +17,13 @@ status_t push(stack *sptr, slist *node)
 /* pop from stack */
 status_t pop(stack *sptr, slist **node)
 {
-	if (!*sptr)
+	if (!sptr)
 	{
 		error_msg("stack is empty");
 		return failure;
 	}
 
-	*node = *sptr;
+	*node = sptr;
 	(*node)->next = NULL;
 
 	delete_first(sptr);
