@@ -23,7 +23,7 @@ status_t pop(stack *sptr, slist **node)
 		return failure;
 	}
 
-	*node = sptr;
+	*node = *sptr;
 	(*node)->next = NULL;
 
 	delete_first(sptr);

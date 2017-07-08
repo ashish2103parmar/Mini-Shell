@@ -17,13 +17,13 @@ status_t en_queue(queue *qptr, slist *node)
 /* de queue */
 status_t de_queue(queue *qptr, slist **node)
 {
-	if (!qptr)
+	if (!qptr && !*qptr)
 	{
 		error_msg("queue is empty");
 		return failure;
 	}
 
-	*node = qptr;
+	*node = *qptr;
 	(*node)->next = NULL;
 
 	delete_first(qptr);

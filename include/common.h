@@ -11,5 +11,11 @@
 #include <sys/shm.h>
 #include <fcntl.h>
 
+#define swap(X, Y, type) {	\
+	type temp;				\
+	temp = X;  				\
+	X = Y;					\
+	Y = temp;				\
+}
 
 #endif

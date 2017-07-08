@@ -14,7 +14,7 @@ slist *create_node(slist_t type, void *data)
 	if (node)
 	{
 		node->type = type;
-		node->data = arg;
+		node->data = data;
 		node->next = NULL;
 	}
 	else 
@@ -23,7 +23,7 @@ slist *create_node(slist_t type, void *data)
 }
 
 /* insert first */
-status_t insert_first(slist_t **head, slist_t *node)
+status_t insert_first(slist **head, slist *node)
 {
 	if (!node)
 	{
@@ -38,7 +38,7 @@ status_t insert_first(slist_t **head, slist_t *node)
 
 
 /* insert last */
-status_t insert_last(slist_t **head, slist_t *node)
+status_t insert_last(slist **head, slist *node)
 {
 	if (!node)
 	{

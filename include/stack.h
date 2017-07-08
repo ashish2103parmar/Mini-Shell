@@ -7,9 +7,9 @@
 typedef slist* stack;
 
 /* push to stack */
-status_t push(stack *sptr, slist *node)
+status_t push(stack *sptr, slist *node);
 
 /* pop from stack */
-status_t pop(stack *sptr, slist **node)
+status_t pop(stack *sptr, slist **node);
 
 #endif
