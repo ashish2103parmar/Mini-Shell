@@ -31,7 +31,7 @@ uint32 hash_str(char *str, uint32 size)
 }
 
 /* hash insert / edit */
-ht_data *hash_insert(htable *ht, char *str, slist_t type, void *data)
+ht_data *hash_insert(htable *ht, char *str, slist_t type, void *data, int opt)
 {
 	if (!ht || !str)
 		return (void *)-1;
@@ -51,8 +51,14 @@ ht_data *hash_insert(htable *ht, char *str, slist_t type, void *data)
 		{
 			if (!strcmp(((ht_data *)ptr->data)->str, str))
 			{
-				swap(ptr->data, hdata, ht_data *)
-				return hdata;
+				if (opt)
+				{
+					swap(ptr->data, hdata, ht_data *)
+					return hdata;
+				}
+				else
+					return (void *)-1;
+
 			}
 			if (!ptr->next)
 				break;

@@ -23,7 +23,7 @@ htable *create_htable(uint32 ht_size);
 uint32 hash_str(char *str, uint32 size);
 
 /* hash insert / edit */
-ht_data *hash_insert(htable *ht, char *str, slist_t type, void *data);
+ht_data *hash_insert(htable *ht, char *str, slist_t type, void *data, int opt);
 
 /* hash table search */
 status_t hash_search(htable *ht, char *str, void **data);

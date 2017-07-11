@@ -17,7 +17,8 @@ typedef enum
 typedef enum
 {
 	T_INT,
-	T_STR
+	T_STR,
+	T_FUN
 } slist_t;
 
 typedef unsigned long long uint64;

@@ -2,18 +2,32 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <types.h>
+#include <hashtable.h>
+
+extern htable *ptable;
 
 int execute_cmd(char *file, char *argv[])
 {
-	
-	if (-1 == execvp(argv[cmd[idx]], argv + cmd[idx]));
-
+	void (*fptr)(char *[]);
+	if (hash_search(ptable, file, (void **)&fptr))
+	{
+		fptr(argv);
+	}
+	else
+	{
+		if (-1 == execvp(file, argv))
+		{
+			perror(argv[1]);
+			_exit(3);
+		}
+	}
 	return -1;
 }
 
 pid_t child_process_cmd(int argc, char *argv[])
 {
 	int idx, jdx = 0, status;
+	pid_t pid;
 	int *cmd = malloc(sizeof (int));
 
 	cmd[jdx++] = 1;
@@ -80,7 +94,7 @@ pid_t child_process_cmd(int argc, char *argv[])
 		close(pd[pidx][1]);
 	}	
 
-}
 
-return pid;
+
+	return pid;
 }
