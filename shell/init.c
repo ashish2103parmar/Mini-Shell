@@ -46,6 +46,7 @@ status_t init()
 		error_msg("error : init : insert\n");
 		return failure;
 	}
+	return success;
 }
 
 

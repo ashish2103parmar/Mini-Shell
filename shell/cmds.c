@@ -1,6 +1,22 @@
 #include <common.h>
 
 
+		
+void promptusr()
+{
+	char *prmt;
+	if (hash_search(vtable, "PS1", (void **)&prmt))		
+		printf("%s :>", prmt);
+	else
+	{
+		char buff[256];
+		printf("myshell@%s :>", getcwd(buff, 256));
+	}
+
+
+}
+
+
 void exit_cmd(char *argv[])
 {
 	kill(getppid(), SIGKILL);

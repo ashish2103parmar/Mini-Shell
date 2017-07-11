@@ -1,7 +1,7 @@
 SRCS  := $(wildcard *.c)
 TARGET := $(SRCS:.c=.out)
-LFLAG := -L ../lib 
-CFLAG := -I ../include
+LFLAG := -L lib -lmyshell -lslist
+CFLAG := -I include
 
 all : ${TARGET} 
 

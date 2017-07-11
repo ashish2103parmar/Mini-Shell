@@ -27,6 +27,8 @@ htable *ptable;
 htable *vtable;
 stack *curr_cp;
 
+void promptusr();
+	
 void exit_cmd(char *argv[]);
 
 void pwd_cmd(char *argv[]);
@@ -36,5 +38,13 @@ void cd_cmd(char *argv[]);
 void fg_cmd(char *argv[]);
 
 void bg_cmd(char *argv[]);
+
+status_t process_str(char *str);
+
+status_t init();
+
+int execute_cmd(char *file, char *argv[]);
+
+pid_t child_process_cmd(int argc, char *argv[]);
 
 #endif

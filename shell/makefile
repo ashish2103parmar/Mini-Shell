@@ -1,7 +1,7 @@
 TARGET := ../lib/libmyshell.so
 SRC := $(wildcard *.c)
 Cflag := -I ../include
-Lflag := -L ../lib
+Lflag := -L ../lib -lslist
 
 all: ${TARGET}
 
