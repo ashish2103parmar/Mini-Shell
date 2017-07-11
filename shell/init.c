@@ -4,13 +4,11 @@
 #include <stack.h>
 #include <hashtable.h>
 
-htable *ptable;
-htable *vtable;
-stack *cprocess = NULL;
 status_t init()
 {
 	ptable = create_htable(64u);
 	vtable = create_htable(64u);
+	curr_cp = NULL;
 
 	char buff[200];
 	if (hash_insert(vtable, "SHELL", T_STR, (void *)getcwd(buff, 200), 0))
