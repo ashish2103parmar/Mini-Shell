@@ -24,9 +24,9 @@ status_t pop(stack *sptr, slist **node)
 	}
 
 	*node = *sptr;
+	*sptr = (*node)->next;
 	(*node)->next = NULL;
 
-	delete_first(sptr);
 	return success;
 }
 

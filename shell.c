@@ -3,7 +3,7 @@
 int main()
 {
 
-	char buff[256];
+	char buff[256], c;
 	if (!init())
 	{
 		error_msg("shell initializtion failed");
@@ -13,8 +13,11 @@ int main()
 	while (1)
 	{
 		promptusr();
-		scanf(" %[^\n]", buff);
+		scanf("%[^\n]", buff);
+		while ((c = getchar()) != '\n');
 		if (!process_str(buff))
 			error_msg("failed");
+		waitif();
+		*buff = '\0';
 	}
 }

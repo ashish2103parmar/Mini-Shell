@@ -21,13 +21,12 @@ htable *create_htable(uint32 ht_size)
 /* hash string */
 uint32 hash_str(char *str, uint32 size)
 {
-  uint32 hash = 0;
-  while (*str)
+  uint32 hash = 0, idx = 0;
+  while (str[idx])
   {
-	hash = (hash + *str) % size;
-	str++;
+	hash += str[idx++];
   }
-  return hash;
+  return hash % size;
 }
 
 /* hash insert / edit */
@@ -53,7 +52,7 @@ ht_data *hash_insert(htable *ht, char *str, slist_t type, void *data, int opt)
 			{
 				if (opt)
 				{
-					swap(ptr->data, hdata, ht_data *)
+					swap(((ht_data *)ptr->data)->data, hdata->data, void *);
 					return hdata;
 				}
 				else
@@ -87,7 +86,7 @@ status_t hash_search(htable *ht, char *str, void **data)
 		if (!strcmp(((ht_data *)ptr->data)->str, str))
 		{
 			*data = ((ht_data *)ptr->data)->data;
-			return success;
+			return (status_t)ptr->type;
 		}
 		ptr = ptr->next;
 	}

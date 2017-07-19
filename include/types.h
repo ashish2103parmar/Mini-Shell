@@ -16,10 +16,12 @@ typedef enum
 
 typedef enum
 {
-	T_INT,
+	T_INT = 1,
 	T_STR,
-	T_FUN
+	T_FUN,
+	T_PRO
 } slist_t;
+
 
 typedef unsigned long long uint64;
 typedef unsigned int uint32;
