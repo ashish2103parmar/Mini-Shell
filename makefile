@@ -1,11 +1,11 @@
-SRCS  := $(wildcard *.c)
-TARGET := $(SRCS:.c=.out)
-LFLAG := -L lib -lmyshell -lslist
+SRCS  := $(wildcard *.c) $(wildcard shell/*.c) $(wildcard slist/*.c) 
+TARGET := MYSHELL
+#LFLAG := -L lib -lmyshell -lslist
 CFLAG := -I include
 
 all : ${TARGET} 
 
-%.out:%.c
+${TARGET}:${SRCS}
 	gcc  $^ ${LFLAG} ${CFLAG} -o $@
 
 clean:

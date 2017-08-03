@@ -107,8 +107,7 @@ pid_t child_process_cmd(int argc, char *argv[])
 				/* exec ls */
 				if (BACKGROUND_ISSET)
 				{
-					BACKGROUND_ISSET = 1;
-					close(0);
+					BACKGROUND_ISSET = 0;
 				}
 				if (-1 == execvp(argv[cmd[idx]], argv + cmd[idx]))
 				{
